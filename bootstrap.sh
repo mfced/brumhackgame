@@ -24,12 +24,13 @@ vm_memory=501712
 # key for win will be:
 win_key=$brum_text$mob_tot$magic42_tot$vm_memory
 
+useradd -m -s /bin/bash -U gaben
 apt-get -y install rar
 
-usermod -g vagrant root
-
-mkdir /home/vagrant/Game
-cd /home/vagrant/Game
+usermod -g gaben root
+mkdir /home/gaben/Game
+chmod 0770 /home/gaben/Game
+cd /home/gaben/Game
 #touch .win
 for num in {1..100}; do
     mkdir $num
@@ -58,22 +59,22 @@ for num in {1..100}; do
 		cat /vagrant/var_magic42names | xargs touch
 	    fi
     done
-    cd /home/vagrant/Game
+    cd /home/gaben/Game
 done 
     
-    cd /home/vagrant/Game
+    cd /home/gaben/Game
     touch .win
     echo "$win_key" >> .win
 #    rm .win 
     
     echo ".win password is $win_key" 
 
-    rar a -p$win_key .win.rar .win & 
-    cd /home/vagrant/ 
+    rar a -p$win_key .win.rar .win 
+    cd /home/gaben/ 
 #    rar a -pcedric Game.rar Game/* 
 
-    rm /home/vagrant/Game/.win
-    rm -R /home/vagrant/Game/
+    rm /home/gaben/Game/.win
+#    rm -R /home/vagrant/Game/
 #    rm /h
 #    cd /home/vagrant/ &
 
