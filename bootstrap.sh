@@ -24,11 +24,6 @@ while [  $COUNTER -lt $LIMIT ]; do
 	echo $LIMIT
 done
 
-
-#for mobnum in "{1..$counter}";do
-#	mob_loc[$mobnum]=$((1 + RANDOM % 100))
-#	echo $mobnum
-#done;  
 echo "${#mob_loc[@]} mob_loc"
 #mob_loc=(1 8 38 12 99 2)
 
@@ -36,18 +31,27 @@ echo "${#mob_loc[@]} mob_loc"
 mob_tot=${#mob_loc[@]}
 
 # C) Total number files Magic*42
-#magic42 file location
-magic42_loc=(88 9 8 12 1 4 2)
+	#magic42 file location
+COUNTER=0
+LIMIT=$((1 + RANDOM % 100))
+while [  $COUNTER -lt $LIMIT ]; do
+	#echo The counter is $COUNTER
+	magic42_loc[$COUNTER]=$((1 + RANDOM % 100))
+	let COUNTER=COUNTER+1
+	echo $LIMIT
+done
+#magic42_loc=(88 9 8 12 1 4 2)
 #magic42 total files
 magic42_tot=${#magic42_loc[@]}
 
 # D) Total Memory
-#Set memory to:
+	#Set memory to:
 vm_memory=$(vmstat -s | head -1 | sed 's/K total memory//;s/ //' | tr -d '[[:space:]]')
 #vm_memory=501712
 
-# key for win will be:
+# key for win will be:  Updated on line 105 for mob_loc and magic42_loc
 win_key=$brum_text$mob_tot$magic42_tot$vm_memory
+
 
 #magic42 line initate as a number
 declare -i magic42_line
@@ -107,6 +111,7 @@ for num in {1..100}; do
 done 
     vmstat -s | head -1 | sed 's/K total memory//;s/ //' | tr -d '[[:space:]]' 
     mob_tot=$(find . -name mobilefun | wc -l)
+    magic42_tot=$(find . -name magic*42 | wc -l)
     win_key=$brum_text$mob_tot$magic42_tot$vm_memory
 
     echo "mob tot: $mob_tot"
