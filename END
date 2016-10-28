@@ -1,0 +1,4 @@
+duration=$(( SECONDS - start ))
+echo "time duration: $duration"
+echo "time duration: $duration" >> /home/gaben/.challenger
+echo "----------------------------------------" >> /home/gaben/.challenger

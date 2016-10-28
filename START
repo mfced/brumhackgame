@@ -1,0 +1,43 @@
+#!/bin/bash
+# This script will ask for your details
+export start
+echo "Type your full name: "
+read name
+echo "Email: "
+read email
+echo "Phone number: "
+read phone
+echo "University: "
+read university
+echo "Course: "
+read course
+echo "Graduation year: "
+read year
+
+
+touch .challenger
+echo "Name: $name" >> .challenger
+echo "Email: $email" >> .challenger
+echo "Phone number: $phone" >> .challenger
+echo "University: $university" >> .challenger
+echo "Course: $course" >> .challenger
+echo "Graduation year: $year" >> .challenger
+echo "=============================" >> .challenger
+
+echo "Game will start in..."
+sleep 1
+echo 5
+sleep 1
+echo 4
+sleep 1
+echo 3
+sleep 1
+echo 2
+sleep 1
+echo 1
+sleep 1
+echo "Gooooooooooooo!!!!"
+
+start=$SECONDS
+
+echo $start
