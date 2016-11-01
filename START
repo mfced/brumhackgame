@@ -39,5 +39,3 @@ sleep 1
 echo "Gooooooooooooo!!!!"
 
 start=$SECONDS
-
-echo $start

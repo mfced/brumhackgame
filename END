@@ -1,4 +1,7 @@
+#!/bin/bash
 duration=$(( SECONDS - start ))
-echo "time duration: $duration"
+echo "Congratulations, YOU WIN!!!"
+#echo "Your time is: $duration seconds"
 echo "time duration: $duration" >> /home/gaben/.challenger
 echo "----------------------------------------" >> /home/gaben/.challenger
+

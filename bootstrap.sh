@@ -157,9 +157,9 @@ done
     rm /home/gaben/Game/.win
 
     # Hide vm as a vagrant box
-    umount /vagrant
-    usermod -l mobilefun_user -m -d /home/mobilefun_user vagrant
-    groupmod -n mobilefun_user vagrant
+#    umount /vagrant
+#    usermod -l mobilefun_user -m -d /home/mobilefun_user vagrant
+#    groupmod -n mobilefun_user vagrant
 
     #change root password 
     echo "root:cedricgumpic619"|chpasswd
